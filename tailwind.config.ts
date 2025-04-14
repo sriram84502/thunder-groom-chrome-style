@@ -52,42 +52,29 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
-        // Enhanced brand colors with more depth
         brand: {
-          black: {
-            DEFAULT: '#1A1A1A',
-            50: '#333333',
-            100: '#2C2C2C',
-            200: '#404040'
+          navy: {
+            DEFAULT: '#1a2c4e',
+            light: '#2c4366',
+            dark: '#142339'
           },
-          charcoal: {
-            DEFAULT: '#333333',
-            50: '#4A4A4A',
-            100: '#3E3E3E'
+          blue: {
+            DEFAULT: '#0284c7',
+            light: '#38bdf8',
+            dark: '#075985'
           },
           silver: {
-            DEFAULT: '#C0C0C0',
-            50: '#D3D3D3',
-            100: '#A9A9A9'
-          },
-          navy: {
-            DEFAULT: '#0F2C52', 
-            50: '#1A4063',
-            100: '#133A6F'
-          },
-          accent: {
-            DEFAULT: '#385170',
-            50: '#4A6990',
-            100: '#2C4559'
+            DEFAULT: '#e2e8f0',
+            light: '#f8fafc',
+            dark: '#94a3b8'
           }
         }
       },
-      // Add some new gradient backgrounds
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(135deg, #385170 0%, #1A1A1A 100%)',
-        'gradient-silver': 'linear-gradient(135deg, #C0C0C0 0%, #8E8E8E 100%)',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-shine': 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1))',
       },
-      // Enhanced shadow effects
       boxShadow: {
         'brand-soft': '0 4px 6px -1px rgba(56, 81, 112, 0.1), 0 2px 4px -1px rgba(56, 81, 112, 0.06)',
         'brand-medium': '0 10px 15px -3px rgba(56, 81, 112, 0.2), 0 4px 6px -2px rgba(56, 81, 112, 0.1)',
@@ -117,7 +104,6 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' }
         },
-        // New custom animations
         'subtle-pulse': {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.02)' }

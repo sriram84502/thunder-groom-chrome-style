@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Star } from 'lucide-react';
@@ -8,32 +7,32 @@ import { useInView } from 'react-intersection-observer';
 const featuredProducts = [
   {
     id: 1,
-    name: 'PREMIUM FACE SERUM',
+    name: "PREMIUM FACE SERUM",
     price: 45,
     rating: 4.8,
     reviews: 124,
-    image: '/placeholder.svg',
-    description: 'Hydrating serum with hyaluronic acid and vitamin C for bright, revitalized skin.',
+    image: "https://images.unsplash.com/photo-1618588508779-0e1c6b583de6?w=800&auto=format&fit=crop&q=60",
+    description: "Hydrating serum with hyaluronic acid and vitamin C for bright, revitalized skin.",
     ingredients: ['Hyaluronic Acid', 'Vitamin C', 'Niacinamide', 'Green Tea Extract']
   },
   {
     id: 2,
-    name: 'HYDRATING FACE MOISTURIZER',
+    name: "HYDRATING FACE MOISTURIZER",
     price: 42,
     rating: 4.9,
     reviews: 97,
-    image: '/placeholder.svg',
-    description: 'Lightweight daily moisturizer that hydrates without clogging pores.',
+    image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=800&auto=format&fit=crop&q=60",
+    description: "Lightweight daily moisturizer that hydrates without clogging pores.",
     ingredients: ['Squalane', 'Ceramides', 'Jojoba Oil', 'Aloe Vera']
   },
   {
     id: 3,
-    name: 'LUXURY BEARD OIL',
+    name: "LUXURY BEARD OIL",
     price: 36,
     rating: 4.7,
     reviews: 183,
-    image: '/placeholder.svg',
-    description: 'Premium beard oil to soften, condition, and promote healthy beard growth.',
+    image: "https://images.unsplash.com/photo-1621607512022-6aecc4fed814?w=800&auto=format&fit=crop&q=60",
+    description: "Premium beard oil to soften, condition, and promote healthy beard growth.",
     ingredients: ['Argan Oil', 'Jojoba Oil', 'Grapeseed Oil', 'Vitamin E']
   }
 ];
@@ -60,7 +59,7 @@ const FeaturedProducts = () => {
   };
 
   return (
-    <section ref={containerRef} className="py-24 bg-brand-black relative overflow-hidden">
+    <section ref={containerRef} className="py-24 bg-gradient-to-br from-brand-navy to-brand-navy-light relative overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section title */}
         <motion.div
@@ -82,19 +81,19 @@ const FeaturedProducts = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Product image */}
           <motion.div 
-            className="aspect-square relative bg-gradient-to-br from-brand-charcoal to-brand-black p-10 flex items-center justify-center rounded-lg"
+            className="aspect-square relative bg-gradient-to-br from-brand-blue/10 to-brand-blue-dark/20 p-10 flex items-center justify-center rounded-lg overflow-hidden"
             style={{ y, opacity }}
           >
             <div className="relative w-full h-full">
               <img 
                 src={selectedProduct.image} 
                 alt={selectedProduct.name}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain rounded-lg"
               />
               
               {/* Floating badges */}
               <motion.div 
-                className="absolute top-0 left-0 bg-brand-silver text-brand-black px-3 py-1 text-sm font-medium"
+                className="absolute top-0 left-0 bg-brand-blue text-white px-3 py-1 text-sm font-medium rounded-br-lg"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -103,19 +102,19 @@ const FeaturedProducts = () => {
               </motion.div>
               
               <motion.div 
-                className="absolute bottom-4 right-4 glass-effect px-3 py-1 rounded-full flex items-center"
+                className="absolute bottom-4 right-4 glass-morphism px-3 py-1 rounded-full flex items-center"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                <Star size={14} className="text-brand-silver mr-1" fill="currentColor" />
+                <Star size={14} className="text-brand-blue-light mr-1" fill="currentColor" />
                 <span className="text-white text-sm">{selectedProduct.rating}</span>
                 <span className="text-white/50 text-xs ml-1">({selectedProduct.reviews})</span>
               </motion.div>
             </div>
           </motion.div>
           
-          {/* Right: Product info and selection */}
+          {/* Right: Product info */}
           <div>
             {/* Product details */}
             <motion.div 
@@ -151,23 +150,23 @@ const FeaturedProducts = () => {
             </motion.div>
             
             {/* Product selection */}
-            <div className="border-t border-brand-charcoal pt-8">
+            <div className="border-t border-brand-blue/20 pt-8 mt-8">
               <h4 className="text-white text-sm font-medium mb-4">EXPLORE MORE:</h4>
               <div className="grid grid-cols-3 gap-4">
                 {featuredProducts.map((product) => (
                   <button 
                     key={product.id}
-                    className={`aspect-square p-4 flex items-center justify-center border transition-all ${
+                    className={`aspect-square p-4 flex items-center justify-center border transition-all rounded-lg ${
                       selectedProduct.id === product.id
-                        ? 'border-brand-silver bg-brand-charcoal/50'
-                        : 'border-brand-charcoal hover:border-brand-silver/50'
+                        ? 'border-brand-blue bg-brand-blue/10'
+                        : 'border-brand-blue/20 hover:border-brand-blue/50'
                     }`}
                     onClick={() => handleProductClick(product)}
                   >
                     <img 
                       src={product.image} 
                       alt={product.name} 
-                      className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+                      className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity rounded-lg"
                     />
                   </button>
                 ))}
@@ -180,7 +179,7 @@ const FeaturedProducts = () => {
         <div className="mt-16 text-center">
           <a 
             href="/products" 
-            className="inline-flex items-center text-brand-silver hover:text-white border-b border-brand-silver pb-1 transition-colors"
+            className="inline-flex items-center text-brand-blue-light hover:text-brand-blue border-b border-brand-blue/50 pb-1 transition-colors"
           >
             VIEW ALL PRODUCTS <ArrowRight size={14} className="ml-1" />
           </a>
